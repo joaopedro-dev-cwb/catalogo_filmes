@@ -3,13 +3,15 @@ require_once 'header.php';
 require_once 'dados.php';
 require_once 'funcoes.php';
 
+// Filtra categorias casso for null retorna string vazia
 $filtros = [
     'categoria' => $_GET['categoria'] ?? '',
 ];
 
+// Filtra a array utilizando getItens() ultilizando a var $filtros
 $itens_filtrados = array_filter(getItens(), function($item) use ($filtros) {
     return empty($filtros['categoria']) || $item['categoria'] == $filtros['categoria'];
-});
+});// Retorna true para todos os itens caso não aja filtro, ou filtra categoria específica 
 
 ?>
 
@@ -17,7 +19,7 @@ $itens_filtrados = array_filter(getItens(), function($item) use ($filtros) {
 <form method="GET">
     <label>Categoria:
         <select name="categoria">
-            <option value="">Todas</option>
+             <option value="">Todas</option>  <!--Atribui string vazia a todas -->
             <?php foreach (getCategorias() as $cat): ?>
                 <option <?= $cat == $filtros['categoria'] ? 'selected' : '' ?>><?= $cat ?></option>
             <?php endforeach; ?>

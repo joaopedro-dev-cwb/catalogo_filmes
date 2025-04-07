@@ -15,7 +15,7 @@
         <nav>
             <a href="index.php">Home</a>
             <a href="filtrar.php">Filtrar</a>
-            <?php if (isset($_SESSION['logado'])): ?>
+            <?php if (isset($_SESSION['logado'])): ?>   <!-- Mostra diferentes links se o usuário estiver ou não logado  -->
                 <a href="protegido.php">Admin</a>
                 <a href="logout.php">Sair</a>
             <?php else: ?>

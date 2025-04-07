@@ -23,6 +23,7 @@ $itens = [
     ]
 ];
 
+// Cria usuário padrão para login
 $usuario = [
     'login' => 'admin',
     'senha_hash' => password_hash('senha123', PASSWORD_DEFAULT)

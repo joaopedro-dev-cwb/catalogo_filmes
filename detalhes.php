@@ -5,6 +5,7 @@ require_once 'funcoes.php';
 
 $item = buscarItemPorId($_GET['id'] ?? 0);
 
+// Redireciona para index caso item não exista
 if (!$item) {
     header('Location: index.php');
     exit();

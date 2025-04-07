@@ -4,6 +4,7 @@ require_once 'dados.php';
 require_once 'funcoes.php';
 protegerPagina();
 
+// Cadastra novo item em página protegida
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $novoItem = [
         'id' => max(array_column(getItens(), 'id')) + 1,
