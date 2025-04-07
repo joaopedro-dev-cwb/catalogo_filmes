@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuarios"])) {
     $_SESSION["usuarios"] = []; // Cria o array de usuários se não existir
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = $_POST["nome"];
     $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT); // Hash da senha
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h1>Cadastro de Usuário</h1>
-    <form action="cadastrar.php" method="post">
+    <form action="cadastrar.php" method="POST">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" required><br><br>
 
